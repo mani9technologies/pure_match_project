@@ -120,7 +120,7 @@ class AdminItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: Image.asset('picture: ${admin.profilePic}')
+                        image: AssetImage('picture: ${admin.profilePic}')
                         ),
                   ),
                 ),
@@ -226,6 +226,8 @@ class ExampleApp extends StatelessWidget {
                       Icons.search,
                       color: Colors.grey,
                     ),
+                    filled: true,
+                    fillColor: Colors.grey[600],
                     enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         borderSide:
