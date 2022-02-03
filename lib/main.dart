@@ -59,7 +59,7 @@ class EmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center( 
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
@@ -69,9 +69,7 @@ class EmptyView extends StatelessWidget {
           ),
           Text(
             'No Admin is found with this name',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20),
+            style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ],
       ),
@@ -80,14 +78,17 @@ class EmptyView extends StatelessWidget {
 }
 
 class Admin {
-  AssetImage profilePic;
+  String profilePic;
   String fullname;
   String joiningdate;
+  int color;
+ 
 
   Admin({
     required this.profilePic,
     required this.fullname,
     required this.joiningdate,
+    required this.color,
   });
 }
 
@@ -100,79 +101,92 @@ class AdminItem extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Row(
-        children: [
-          // First Column
-          Column(
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.green,
-                ),
-                child: Container(
-                  height: 40,
-                  width: 40,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Row(
+          children: [
+            // First Column
+            Column(
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage('picture: ${admin.profilePic}')
-                        ),
+                      shape: BoxShape.circle, color: Color(admin.color)),
+                  child: Container(
+                    margin: const EdgeInsets.all(2),
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(admin.profilePic)),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
 
-          // Second Column
-          Column(
-            children: [
-              Container(
-                width: 150,
-                margin: const EdgeInsets.only(
-                  top: 0,
-                  left: 60,
-                  right: 10,),
-                child: Column(
-                  children: [
-                    Text(admin.fullname,
-                    style: const TextStyle(color: Colors.white,
-                    fontSize: 18,),
-                    ),
-                  ],
+            // Second Column
+            Column(
+              children: [
+                Container(
+                  width: 150,
+                  margin: const EdgeInsets.only(
+                    top: 0,
+                    left: 40,
+                    right: 10,
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        admin.fullname,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                width: 150,
-                margin: const EdgeInsets.only(
-                  top: 10,
-                  left: 60,
-                  right: 10,),
-                child: Column(
-                  children: [
-                    Text(admin.joiningdate,style: const TextStyle(color: Colors.white,
-                    fontSize: 12),),
-                  ],
+                Container(
+                  width: 150,
+                  margin: const EdgeInsets.only(
+                    top: 10,
+                    left: 50,
+                    right: 10,
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        admin.joiningdate,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
 
-          // Third Column
-          Column(
-            children:[
-             Container(
-               margin: const EdgeInsets.only(left:100),
-               child: const Icon(Icons.more_horiz,color: Colors.white,size: 50,),
-             ),
-            ],
-          ),
-          
-        ],
+            // Third Column
+            Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 100),
+                  child: const Icon(
+                    Icons.more_horiz,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -183,24 +197,46 @@ class ExampleApp extends StatelessWidget {
   //  Please leave it it kept on giving error's ronald kelechi
   final List<Admin> admin = [
     Admin(
-      profilePic: const AssetImage('black_young_man.jpg'),
+      color: 0xFF00BFA5,
+      profilePic: 'wird_dude.jpg',
       fullname: 'Ivan Decaprio',
       joiningdate: 'Member since 21/08/2021',
     ),
     Admin(
-      profilePic: const AssetImage('assets/old_man.jpg'),
+      color: 0xFF00E676,
+      profilePic: 'assets/old_man.jpg',
       fullname: 'Clinton Imora',
       joiningdate: 'Member since 11/04/2020',
     ),
     Admin(
-      profilePic: const AssetImage('assets/blackyounggirl.jpg'),
+      color: 0xFF880E4F,
+      profilePic: 'assets/wird_dude.jpg',
       fullname: 'Ronald Kelechi',
       joiningdate: 'Member since 31/08/2001',
     ),
     Admin(
-      profilePic: const AssetImage("assets/blackyounggirl.jpg"),
+      color: 0xFFF44336,
+      profilePic: "assets/blackyounggirl.jpg",
       fullname: 'John Oseni',
       joiningdate: 'Member since 1/09/2011',
+    ),
+    Admin(
+      color: 0xFF29B6F6,
+      profilePic: "assets/old_man.jpg",
+      fullname: 'Jimmy Donaldson',
+      joiningdate: 'Member since 1/09/2021',
+    ),
+    Admin(
+      color: 0xFF004D40,
+      profilePic: "assets/young_man.jpg",
+      fullname: 'Dustin Evan',
+      joiningdate: 'Member since 1/09/2010',
+    ),
+    Admin(
+      color: 0xFFD500F9,
+      profilePic: "assets/blackyounggirl.jpg",
+      fullname: 'Ivanda Alex',
+      joiningdate: 'Member since 1/09/2002',
     ),
   ];
 
@@ -208,7 +244,7 @@ class ExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 10,right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10),
       child: SizedBox(
         width: double.infinity,
         child: Column(
@@ -224,20 +260,15 @@ class ExampleApp extends StatelessWidget {
                   inputDecoration: InputDecoration(
                     prefixIcon: const Icon(
                       Icons.search,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
                     filled: true,
-                    fillColor: Colors.grey[600],
-                    enabledBorder: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide:
-                            BorderSide(color: Colors.white, width: 1.5)),
+                    fillColor: Colors.grey[800],
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Colors.white,
-                        width: 0.0,
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
                 ),
