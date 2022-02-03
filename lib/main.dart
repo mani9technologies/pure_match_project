@@ -7,8 +7,7 @@ import 'package:searchable_listview/searchable_listview.dart';
 /*
  The assets Images file weren't kept here but were saved on my Google Drive
  but were later moved here to avoid network issues
- Ronald Kelechi. No widget file was used cause of there wwas no need i did it 
-file .
+ Ronald Kelechi. No widget file was used cause of there was no need.
 */
 
 void main() {
@@ -234,7 +233,7 @@ class ExampleApp extends StatelessWidget {
     ),
     Admin(
       color: 0xFFD500F9,
-      profilePic: "assets/blackyounggirl.jpg",
+      profilePic: "assets/hot_girl.jpg",
       fullname: 'Ivanda Alex',
       joiningdate: 'Member since 1/09/2002',
     ),
